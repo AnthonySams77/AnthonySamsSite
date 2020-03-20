@@ -1,8 +1,20 @@
 import React, { Component } from "react";
 
+// Input: liked: boolen
+// Output: onClick
+
 class Like extends Component {
   render() {
-    return <i class="fas fa-heart"></i>;
+    let classes = "fa fa-heart";
+    if (!this.props.liked) classes += "-o";
+    return (
+      <i
+        className={classes}
+        aria-hidden="true"
+        onClick={this.props.onClick}
+        style={{ cursor: "pointer" }}
+      ></i>
+    );
   }
 }
 

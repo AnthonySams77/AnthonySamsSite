@@ -12,10 +12,11 @@ class Movies extends Component {
     this.setState({ movies });
   };
 
-  toggleLike = movie => {
-    const movies = this.state.movies.map(m => {
-      if (movie._id === m._id) m.isLiked = true;
-    });
+  handleLike = movie => {
+    const movies = [...this.state.movies];
+    const index = movies.indexOf(movie);
+    movies[index] = { ...movies[index] };
+    movies[index].liked = !movies[index].liked;
     this.setState({ movies });
   };
 
@@ -26,7 +27,7 @@ class Movies extends Component {
     return (
       <React.Fragment>
         <p>Showing {this.state.movies.length} movies in the database.</p>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Title</th>
@@ -42,8 +43,7 @@ class Movies extends Component {
               <Movie
                 movie={movie}
                 onDelete={this.handleDelete}
-                onLike={this.toggleLike}
-                isLiked={this.state.isLiked}
+                onLike={() => this.handleLike(movie)}
               ></Movie>
             ))}
           </tbody>
