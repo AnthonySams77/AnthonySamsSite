@@ -67,7 +67,17 @@ class LinkedList extends Component {
     }
   }
 
-  isEmpty() {}
+  reverse() {
+    last = this.first;
+    this.first = this.last;
+    this.last = last;
+    prevNode;
+    while (last.next) {
+      prevNode = last.next;
+      prevNode.next = last;
+      last = prevNode;
+    }
+  }
 
   render() {
     return <div></div>;
