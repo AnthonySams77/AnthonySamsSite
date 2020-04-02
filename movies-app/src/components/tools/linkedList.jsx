@@ -79,6 +79,34 @@ class LinkedList extends Component {
     }
   }
 
+  getKthNodeFromEnd(k) {
+    k--;
+    current = this.first;
+    previousK;
+    while (current.next) {
+      previoustK = current;
+      for (i = 0; k > i; i++) {
+        current = current.next;
+      }
+    }
+    return previousK;
+  }
+
+  // getKthNodeFromEnd(k) {
+  //   k--;
+  //   current;
+  //   previousK = this.first;
+  //   count;
+  //   while (previousK.next) {
+  //     current = previousK.next;
+  //     for (i = k; k > i; i++) {
+  //       current = previousK.next;
+  //     }
+  //     current = previousK.next;
+  //   }
+  //   return current;
+  // }
+
   render() {
     return <div></div>;
   }
